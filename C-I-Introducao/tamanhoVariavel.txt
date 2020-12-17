@@ -1,0 +1,8 @@
+inteiros:
+short = 2 bytes
+int = 4 bytes = 32 bits = 2^32 numeros
+long = 8 bytes = 64 bits = 2^64 numeros
+
+ponto flutuantes:
+double = 8 bytes
+float = 4 bytes
