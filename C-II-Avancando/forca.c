@@ -10,15 +10,31 @@ int main(){
 	int acertou = 0;
 	int enforcou = 0;
 
-	do{
-		char chute;
-		scanf("%c", &chute);
+	char chutes[26];
+	int tentativas = 0;
 
+	do{
 		for(int i = 0; i < strlen(palavraSecreta); i++){
-			if(palavraSecreta[i] == chute){
-				printf("A posição %d tem essa letra\n", i);
+			int achou = 0;
+			for (int j = 0; j < tentativas; j++){
+				if (chutes[j] == palavraSecreta[i]){
+					achou = 1;
+					break;
+				}
+			}
+			if (achou){
+				printf("%c ", palavraSecreta[i]);
+			}else{
+				printf("_ ");
 			}
 		}
+		printf("\n");
+		char chute;
+		scanf(" %c", &chute); // o espaço faz com que não guarde o enter no buffer
+
+		chutes[tentativas] = chute;
+		tentativas++;
+
 
 	}while(!acertou && !enforcou);
 }
