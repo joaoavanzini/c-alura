@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include "fogefoge.h"
 
-
-struct mapa m;
+MAPA m;
 
 void liberaMapa(){
 	for(int i = 0; i < m.linhas; i++){
