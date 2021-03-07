@@ -3,6 +3,7 @@
 #define VAZIO '.'
 #define PAREDE_VERTICAL '|'
 #define PAREDE_HORIZONTAL '-'
+#define PILULA 'P'
 
 struct mapa{
 	char** matriz;
@@ -30,8 +31,6 @@ int ehVazia(MAPA* m, int x, int y);
 
 void andandoNoMapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino);
 void copiaMapa(MAPA* destino, MAPA* origem);
-
-int praOndeFantasmaVai(int xatual, int yatual, int* xdestino, int*ydestino);
 
 int podeAndar(MAPA* m, char personagem, int x, int y);
 
