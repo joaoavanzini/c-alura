@@ -19,7 +19,7 @@ int praOndeFantasmaVai(int xatual, int yatual, int* xdestino, int*ydestino){
 	for(int i = 0; i < 10; i++){
 		int posicao = rand() % 4;
 
-		if(podeAndar(&m, opcoes[posicao][0], opcoes[posicao][1])){
+		if(podeAndar(&m, FANTASMA, opcoes[posicao][0], opcoes[posicao][1])){
 			*xdestino = opcoes[posicao][0];
 			*ydestino = opcoes[posicao][1];
 
@@ -86,7 +86,7 @@ void move(char direcao) {
             break;
     }
 
-    if(!podeAndar(&m, proximox, proximoy))
+    if(!podeAndar(&m, HEROI, proximox, proximoy))
     	return;
 
     andandoNoMapa(&m, heroi.x, heroi.y, proximox, proximoy);

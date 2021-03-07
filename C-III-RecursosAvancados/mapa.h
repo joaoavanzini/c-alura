@@ -33,4 +33,8 @@ void copiaMapa(MAPA* destino, MAPA* origem);
 
 int praOndeFantasmaVai(int xatual, int yatual, int* xdestino, int*ydestino);
 
-int podeAndar(MAPA* m, int x, int y);
+int podeAndar(MAPA* m, char personagem, int x, int y);
+
+int ehParede(MAPA* m, int x, int y);
+
+int ehPersonagem(MAPA* m, char personagem, int x, int y);
