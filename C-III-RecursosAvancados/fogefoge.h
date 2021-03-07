@@ -13,4 +13,4 @@ void fantasmas();
 
 int praOndeFantasmaVai(int xatual, int yatual, int* xdestino, int*ydestino);
 
-void explodePilula();
+void explodePilula(int x, int y, int qtd);

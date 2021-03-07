@@ -99,16 +99,12 @@ void move(char direcao) {
     heroi.y = proximoy;
 }
 
-void explodePilula(){
-	for(int i = 1; i <= 3; i++){
-		if(ehValida(&m, heroi.x, heroi.y+i)){
+void explodePilula(int x, int y, int qtd){
 
-			if(ehParede(&m, heroi.x, heroi.y+i)){
-				break;
-			}
-			m.matriz[heroi.x][heroi.y+i] = VAZIO;
-		}
-	}
+	if(qtd == 0) return;
+	
+	m.matriz[x][y+1] = VAZIO;
+	explodePilula(x, y+1, qtd - 1);
 }
 
 int main(){
@@ -123,7 +119,7 @@ int main(){
 		char comando;
 		scanf(" %c", &comando);
 		move(comando);
-		if(comando == BOMBA) explodePilula();
+		if(comando == BOMBA) explodePilula(heroi.x, heroi.y, 3);
 		fantasmas();
 	} while(!acabou());
 
