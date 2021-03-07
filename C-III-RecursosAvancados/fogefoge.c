@@ -100,10 +100,12 @@ void move(char direcao) {
 }
 
 void explodePilula(){
+	if(!temPilula) return;
 	explodePilula2(heroi.x, heroi.y, 0, 1, 3);
 	explodePilula2(heroi.x, heroi.y, 0, -1, 3);
 	explodePilula2(heroi.x, heroi.y, 1, 0, 3);
 	explodePilula2(heroi.x, heroi.y, -1, 0, 3);
+	temPilula = 0;
 }
 
 void explodePilula2(int x, int y, int somax, int somay, int qtd){
