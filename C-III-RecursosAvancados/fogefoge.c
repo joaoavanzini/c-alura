@@ -102,7 +102,9 @@ void move(char direcao) {
 void explodePilula(int x, int y, int qtd){
 
 	if(qtd == 0) return;
-	
+	if(!ehValida(&m, x, y+1)) return;
+	if(ehParede(&m, x, y+1)) return;
+
 	m.matriz[x][y+1] = VAZIO;
 	explodePilula(x, y+1, qtd - 1);
 }
