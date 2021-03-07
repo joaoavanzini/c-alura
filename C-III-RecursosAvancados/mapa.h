@@ -23,10 +23,14 @@ void liberaMapa(MAPA* m);
 void leMapa(MAPA* m);
 void alocaMapa(MAPA* m);
 void imprimeMapa(MAPA* m);
-void encontraMapa(MAPA* m, POSICAO* p, char c);
+int encontraMapa(MAPA* m, POSICAO* p, char c);
 
 int ehValida(MAPA* m, int x, int y);
 int ehVazia(MAPA* m, int x, int y);
 
 void andandoNoMapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino);
 void copiaMapa(MAPA* destino, MAPA* origem);
+
+int praOndeFantasmaVai(int xatual, int yatual, int* xdestino, int*ydestino);
+
+int podeAndar(MAPA* m, int x, int y);

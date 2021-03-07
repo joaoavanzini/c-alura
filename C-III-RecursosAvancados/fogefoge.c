@@ -19,7 +19,7 @@ int praOndeFantasmaVai(int xatual, int yatual, int* xdestino, int*ydestino){
 	for(int i = 0; i < 10; i++){
 		int posicao = rand() % 4;
 
-		if(ehValida(&m, opcoes[posicao][0], opcoes[posicao][1]) && ehVazia(&m, opcoes[posicao][0], opcoes[posicao][1])){
+		if(podeAndar(&m, opcoes[posicao][0], opcoes[posicao][1])){
 			*xdestino = opcoes[posicao][0];
 			*ydestino = opcoes[posicao][1];
 
@@ -54,7 +54,9 @@ void fantasmas(){
 }
 
 int acabou(){
-	return 0;
+	POSICAO pos;
+	int fogefogeNoMapa = encontraMapa(&m, &pos, HEROI);
+	return !fogefogeNoMapa;
 }
 
 int ehDirecao(char direcao){
@@ -84,10 +86,7 @@ void move(char direcao) {
             break;
     }
 
-    if(!ehValida(&m, proximox, proximoy))
-    	return;
-
-    if(!ehVazia(&m, proximox, proximoy))
+    if(!podeAndar(&m, proximox, proximoy))
     	return;
 
     andandoNoMapa(&m, heroi.x, heroi.y, proximox, proximoy);
