@@ -1,1 +1,1 @@
-gcc fogefoge.c mapa.c -o fogefoge.exe
+gcc fogefoge.c mapa.c ui.c -o fogefoge.exe
