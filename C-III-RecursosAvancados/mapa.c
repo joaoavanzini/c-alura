@@ -6,7 +6,7 @@ void andandoNoMapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino
 	
 	char personagem = m->matriz[xorigem][yorigem];
 	m->matriz[xdestino][ydestino] = personagem;
-	m->matriz[xorigem][yorigem] = '.';
+	m->matriz[xorigem][yorigem] = VAZIO;
 }
 
 int ehValida(MAPA* m, int x, int y){
@@ -18,7 +18,7 @@ int ehValida(MAPA* m, int x, int y){
 }
 
 int ehVazia(MAPA* m, int x, int y){
-	return m->matriz[x][y] == '.';
+	return m->matriz[x][y] == VAZIO;
 }
 
 void encontraMapa(MAPA* m, POSICAO* p, char c) {
