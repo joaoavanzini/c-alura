@@ -18,3 +18,8 @@ void leMapa(MAPA* m);
 void alocaMapa(MAPA* m);
 void imprimeMapa(MAPA* m);
 void encontraMapa(MAPA* m, POSICAO* p, char c);
+
+int ehValida(MAPA* m, int x, int y);
+int ehVazia(MAPA* m, int x, int y);
+
+void andandoNoMapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino);
