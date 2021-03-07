@@ -1,0 +1,2 @@
+void liberaMapa();
+void leMapa();
