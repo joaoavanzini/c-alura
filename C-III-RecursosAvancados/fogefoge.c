@@ -99,14 +99,25 @@ void move(char direcao) {
     heroi.y = proximoy;
 }
 
-void explodePilula(int x, int y, int qtd){
+void explodePilula(){
+	explodePilula2(heroi.x, heroi.y, 0, 1, 3);
+	explodePilula2(heroi.x, heroi.y, 0, -1, 3);
+	explodePilula2(heroi.x, heroi.y, 1, 0, 3);
+	explodePilula2(heroi.x, heroi.y, -1, 0, 3);
+}
+
+void explodePilula2(int x, int y, int somax, int somay, int qtd){
 
 	if(qtd == 0) return;
-	if(!ehValida(&m, x, y+1)) return;
-	if(ehParede(&m, x, y+1)) return;
 
-	m.matriz[x][y+1] = VAZIO;
-	explodePilula(x, y+1, qtd - 1);
+	int novox = x + somax;
+	int novoy = y + somay;
+
+	if(!ehValida(&m, novox, novoy)) return;
+	if(ehParede(&m, novox, novoy)) return;
+
+	m.matriz[novox][novoy] = VAZIO;
+	explodePilula2(novox, novoy, somax, somay, qtd - 1);
 }
 
 int main(){
@@ -121,7 +132,7 @@ int main(){
 		char comando;
 		scanf(" %c", &comando);
 		move(comando);
-		if(comando == BOMBA) explodePilula(heroi.x, heroi.y, 3);
+		if(comando == BOMBA) explodePilula();
 		fantasmas();
 	} while(!acabou());
 
